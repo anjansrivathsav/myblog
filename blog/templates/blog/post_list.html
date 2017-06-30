@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+
+
+<div class="centerstage">
+
+
+
+    {% for post in post_list %}
+        <div class="post">
+
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+              <h3>by Anjansrivathsav</h3>
+               {% if post.image %}
+              <img src="{{post.image.url}}" >
+               {% endif %}
+            <div class="date">
+                <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+            </div>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ Comment.approved_comment.count }}</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
