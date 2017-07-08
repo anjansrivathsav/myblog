@@ -9,7 +9,7 @@ advanced features are to be added into it more .
 
 like voicesearch
 
-The link of this blogapp is at  anjansrivathsav.pythonanywhere.com
+The link of this blogapp is at  http://anjansrivathsav.pythonanywhere.com
 
 
 
