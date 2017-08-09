@@ -67,6 +67,7 @@ def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_detail', pk=pk)
+  
 
 
 def add_comment_to_post(request, pk):
@@ -96,3 +97,24 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
+def send_email(request):
+    #post = get_object_or_404(Post)
+    if request.method == 'POST':
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message', '')
+        from_email = request.POST.get('from_email', '')
+        if subject and message and from_email:
+
+            try:
+
+                send_mail(subject, message, from_email, ['anjansrivathsav1997@gmail.com'])
+            except  BadHeaderError:
+
+                return HttpResponse('blog/base.html')
+            return HttpResponseRedirect('blog/base.html')
+        else:
+            return HttpResponse('Please check all the fields')
+    else:
+        form = ContactForm()
+        return render(request, 'blog/mail.html', {'form': form})
+    return HttpResponse('blog/base.html')
