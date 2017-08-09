@@ -27,3 +27,7 @@ class CommentForm(forms.ModelForm):
            'author':forms.TextInput(attrs={'class':'textinputclass'}),
            'text':forms.Textarea(attrs={'class':'editable medium-editor-textarea '})
         }
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget = forms.Textarea)
+    from_email = forms.EmailField()
