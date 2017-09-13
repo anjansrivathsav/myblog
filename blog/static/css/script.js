@@ -185,3 +185,41 @@ var contentpopulated = function ($this) {
 
         }
     }
+// fetching the data from foursquareapi  and adding it to the content
+    function addLocationInfo(marker, infowindow) {
+
+        var url = 'https://api.foursquare.com/v2/venues/search?v=20161016';
+        url += '&client_id=' + 'ZTT1YZTZEOIQLVVFIFNI3IHNNERWZTS045E0X3GHWT0DWUIB';
+        url += '&client_secret=' + 'NPB5KF0UWH555SGMJZWGR4HMHAJJWHPLCK2Q2ZUTTAVTZEMP';
+        url += '&ll=' + marker.getPosition().lat() + ',' + marker.getPosition().lng();
+        url += '&query=' + marker.title;
+
+        // ajax request for the data to add in the content
+        $.getJSON(url, function (data) {
+
+            var area = data.response.venues[0];
+            var markerdata = '<b><u>' + marker.title + '</u></b><br>';
+
+// adding the various feilds to the content
+            if (area.categories.length > 0) {
+                markerdata += '<u><b>Category:</b></u>' + area.categories[0].name + '<br>';
+            }
+
+            if (area.location.address !== undefined) {
+                markerdata += '<u><b>Address:</b></u>';
+
+                markerdata += area.location.address + '<br>';
+
+            }
+            if (area.location.city !== undefined && area.location.country !== undefined) {
+                markerdata += area.location.city + ',' + area.location.country;
+            }
+
+
+            infowindow.setContent(markerdata);
+
+        }).fail(function () {
+            infowindow.setContent("something went wrong ");
+        });
+
+    }
