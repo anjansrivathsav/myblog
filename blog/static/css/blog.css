@@ -53,5 +53,11 @@ body {
     text-align: left;
 
 }
+.map-container {
+    height: 100%;
+    width: 100%;
+}
+
+
 /*COLOR CHANGER*/
 /*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
