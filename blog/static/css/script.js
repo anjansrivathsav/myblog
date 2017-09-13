@@ -138,3 +138,26 @@ function initMap() {
             marker.addListener('click', contentpopulated);
 
         }
+var contentpopulated = function ($this) {
+
+        $this = this;
+        populateInfoWindow(this, largeInfoWindow);
+
+    };
+
+    function refresh(markerList) {
+        hide(markers);
+        markerList().forEach(function (data) {
+            markers[data.index].setMap(map);
+        });
+    }
+
+    function hide(value) {
+        for (var i = 0; i < value.length; i++) {
+            value[i].setMap(null);
+        }
+    }
+
+    function showwindow(markerIndex) {
+        populateInfoWindow(markers[markerIndex], largeInfoWindow);
+    }
