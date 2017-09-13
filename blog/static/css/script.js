@@ -270,3 +270,22 @@ var contentpopulated = function ($this) {
             showwindow(markerIndex);
         };
     }
+ $(document).ready(function () {
+        // initializing the markers
+        initMarkers();
+
+        var Markermodel;
+        Markermodel = new MarkerListViewModel();
+        ko.applyBindings(Markermodel);
+
+        Markermodel.list.subscribe(function () {
+            Markermodel.refresh();
+        });
+
+    });
+    }
+
+// error to load the map
+mapLoadError = function() {
+  alert('Google maps failed to load ');
+};
