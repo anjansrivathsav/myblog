@@ -90,3 +90,8 @@ function initMap() {
         ]
     });
        
+// adding the bounds
+    bounds = new google.maps.LatLngBounds();
+
+    // initializing the window
+    largeInfoWindow = new google.maps.InfoWindow();
