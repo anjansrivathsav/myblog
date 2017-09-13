@@ -223,3 +223,50 @@ var contentpopulated = function ($this) {
         });
 
     }
+
+     
+
+    function model() {
+
+        function MarkerListViewModel() {
+        var self = this;
+
+        self.list = ko.observable('');
+
+        // initiallizing the list of markers
+        self.markerList = locations;
+
+        var e = function () {
+        };
+        var x = function () {
+        };
+        var z = function () {
+        };
+
+        //filtered based on the value input
+        self.markers = ko.computed(e = function () {
+            var filter;
+            filter = self.list();
+            if (filter === '') {
+                return self.markerList;
+            }
+            if (filter !== '') {
+                var temp;
+                temp = self.markerList.slice();
+                return temp.filter(x = function (marker) {
+                    return marker.title.toUpperCase().indexOf(filter.toUpperCase()) > -1;
+                });
+            }
+
+
+        });
+
+        self.refresh = function () {
+            refresh(self.markers);
+        };
+
+
+        self.itemClicked = function (markerIndex) {
+            showwindow(markerIndex);
+        };
+    }
