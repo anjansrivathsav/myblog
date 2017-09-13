@@ -105,3 +105,11 @@ function initMap() {
         },
         {
             title: 'Nit warangal', location: {lat: 17.9837335, lng: 79.5277655}, index: 4
+ }];
+
+
+//empty markers is created
+    markers = [];
+    initMarkers();
+    model();
+}
