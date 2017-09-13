@@ -41,6 +41,17 @@ body {
 #map {
     height: 100%;
 }
+.option-box {
+    width: 300px;
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 100%;
+    line-height: 35px;
+    padding: 10px 10px 30px 10px;
+    text-align: left;
 
+}
 /*COLOR CHANGER*/
 /*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
