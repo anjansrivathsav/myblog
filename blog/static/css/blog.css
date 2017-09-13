@@ -61,6 +61,13 @@ body {
 .text {
         font-size: 12px;
       }
+ .filter-in {
+    box-sizing: border-box;
+    line-height: 24px;
+    padding: 8px;
+    width: 100%;
+    font-size: 20px;
+}
 
 /*COLOR CHANGER*/
 /*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
