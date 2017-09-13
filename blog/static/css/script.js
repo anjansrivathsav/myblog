@@ -161,3 +161,27 @@ var contentpopulated = function ($this) {
     function showwindow(markerIndex) {
         populateInfoWindow(markers[markerIndex], largeInfoWindow);
     }
+      function populateInfoWindow(marker, infowindow) {
+
+        if (infowindow.marker != marker) {
+            infowindow.marker = marker;
+
+            addLocationInfo(marker, infowindow);
+            infowindow.open(map, marker);
+
+            infowindow.addListener('closeclick', function () {
+                infowindow.setMarker = null;
+            });
+
+            if(marker.getAnimation() !== null){
+                marker.setAnimation(null);
+            }else{
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+
+                setTimeout(function () {
+                    marker.setAnimation(null);
+                },800);
+            }
+
+        }
+    }
