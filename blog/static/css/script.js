@@ -113,3 +113,28 @@ function initMap() {
     initMarkers();
     model();
 }
+ // adding the markerslist to the various positions
+    function initMarkers() {
+        // adding the markers
+        for (var i = 0; i < locations.length; i++) {
+            var marker = new google.maps.Marker({
+                position: locations[i].location,
+                map: map,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 10
+                },
+                title: locations[i].title,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                id: i
+            });
+
+            markers.push(marker);
+
+            bounds.extend(marker.position);
+
+
+            marker.addListener('click', contentpopulated);
+
+        }
