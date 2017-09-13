@@ -22,3 +22,11 @@
                        placeholder="Enter the place">
             </div>
             <div>
+<h4>places which are cool :</h4>
+            </div>
+            <ol  data-bind="foreach:markers()">
+                <li data-bind="click: $parent.itemClicked.bind($data, index)"><a href="" data-bind="text:title"></a>
+                </li>
+            </ol>
+        </div>
+    </div>
