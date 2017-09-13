@@ -95,3 +95,13 @@ function initMap() {
 
     // initializing the window
     largeInfoWindow = new google.maps.InfoWindow();
+// adding the good places in the warangal to the locations with latitude and longitudes
+    locations = [
+        {title: 'Bhadrakali temple', location: {lat: 17.9948584, lng: 79.580594}, index: 0},
+        {title: 's2 cinemas hall', location: {lat: 17.9761984, lng: 79.5983978}, index: 1},
+        {title: 'Thousand pillar temple', location: {lat: 18.0037375, lng: 79.572564}, index: 2},
+        {
+            title: 'Mc donalds', location: {lat: 17.9962034, lng: 79.5485788}, index: 3
+        },
+        {
+            title: 'Nit warangal', location: {lat: 17.9837335, lng: 79.5277655}, index: 4
